@@ -2,16 +2,16 @@ from twilio.rest import Client
 
 def send_whatsapp():
     # Twilio credentials
-    account_sid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'  # Replace with your Twilio Account SID
-    auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'    # Replace with your Twilio Auth Token
-    twilio_whatsapp_number = 'whatsapp:+1234567789'  # Twilio sandbox number for WhatsApp
+    account_sid = 'AC5b155bd57564309f05c59d6d5da8251f'  # Replace with your Twilio Account SID
+    auth_token = '0cc25ba60b51bab9740a3eccc4c9bcfb'    # Replace with your Twilio Auth Token
+    twilio_whatsapp_number = 'whatsapp:+14155238886'  # Twilio sandbox number for WhatsApp
 
     # Recipient's WhatsApp number
-    to_whatsapp_number = 'whatsapp:+your_number'  # Replace with your WhatsApp number
+    to_whatsapp_number = 'whatsapp:+918766486458'  # Replace with your WhatsApp number
 
     # Message content
     message_body = (
-        "Boss! Your Process is Finally Done 🎉\n\n"
+        "[192.168.17.41]: Boss! Your Process is Finally Done 🎉\n\n"
         "\n\n"
         "❤️ -- Yours, Kivi"
     )

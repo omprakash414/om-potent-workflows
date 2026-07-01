@@ -3,10 +3,10 @@
 # Function to prompt for input if not provided as arguments
 prompt_for_input() {
     if [ -z "$username_input" ]; then
-        read -p "Enter username (user1/user2): " username_input
+        read -p "Enter username (om/sakshi): " username_input
     fi
     if [ -z "$ip_suffix" ]; then
-        read -p "Enter IP suffix (e.g., suffix1): " ip_suffix
+        read -p "Enter IP suffix (e.g., 16.203): " ip_suffix
     fi
 }
 
@@ -19,13 +19,13 @@ prompt_for_input
 
 # Set username based on input
 case "$username_input" in
-    user1)
-        username="user1"
-        password="password1"
+    om)
+        username="omprakash"
+        password="797780@Om"
         ;;
-    user2)
-        username="user2"
-        password="password2"
+    sakshi)
+        username="sakshi"
+        password="836575@Sa"
         ;;
     *)
         echo "Invalid username input"
@@ -35,14 +35,14 @@ esac
 
 # Set server_ip based on IP suffix
 case "$ip_suffix" in
-    suffix1)
-        server_ip="192.168.suffix1"
+    16.203)
+        server_ip="192.168.16.203"
         ;;
-    suffix2)
-        server_ip="192.168.suffix2"
+    17.41)
+        server_ip="192.168.17.41"
         ;;
-    suffix3)
-        server_ip="192.168.suffix3"
+    3.133)
+        server_ip="192.168.3.133"
         ;;
     *)
         echo "Invalid IP suffix"

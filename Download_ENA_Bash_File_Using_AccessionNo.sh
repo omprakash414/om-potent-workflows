@@ -17,7 +17,7 @@ cd "$FOLDER" || exit
 
 # Download TSV metadata file
 wget -q "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=$ACCESSION&result=read_run&fields=fastq_ftp&format=tsv&download=true" -O "${ACCESSION}.tsv"
-
+ 
 # Check if download was successful
 if [ ! -s "${ACCESSION}.tsv" ]; then
     echo "Error: Failed to download TSV for accession $ACCESSION"

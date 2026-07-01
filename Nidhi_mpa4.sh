@@ -38,11 +38,11 @@ cd "$input_dir" || { echo "Error: Unable to access directory $input_dir"; exit 1
 step1_paired() {
     echo "Running Step 1 (paired-end): MetaPhlAn 4"
     mkdir -p bowtie2 sams
-    for file in *_1.fastq.gz; do
-        sample_name=$(basename "$file" _1.fastq.gz)
-        zcat "${sample_name}_1.fastq.gz" "${sample_name}_2.fastq.gz" > "${sample_name}.merged.fastq"
+    for file in *_R1_paired.fastq.gz; do
+        sample_name=$(basename "$file" _R1_paired.fastq.gz)
+        zcat "${sample_name}_R1_paired.fastq.gz" "${sample_name}_R2_paired.fastq.gz" > "${sample_name}.merged.fastq"
         metaphlan "${sample_name}.merged.fastq" --input_type fastq -s "sams/${sample_name}.sam.bz2" \
-            --bowtie2out "bowtie2/${sample_name}.bowtie2.bz2" --nproc 20 -o "${sample_name}_profiled.txt"
+            --bowtie2out "bowtie2/${sample_name}.bowtie2.bz2" --nproc 40 -o "${sample_name}_profiled.txt"
         rm "${sample_name}.merged.fastq"
     done
     rm -rf bowtie2

@@ -61,7 +61,7 @@ process_single() {
     awk 'NR%4==1 {gsub("@",">",$0); print} NR%4==2 {print}' "$fq" > "$fa"
 
     echo "Running Spingo..."
-    /home/omprakash/spingo/SPINGO-master/spingo -d /home/omprakash/spingo/SPINGO-master/database/RDP_11.2.species.fa -p 30 -i "$fa" > "$sample.spingo.out.txt"
+    /home/omprakash/spingo/SPINGO-master/spingo -d /home/omprakash/spingo/SPINGO-master/database/RDP_11.2.species.fa -p 60 -i "$fa" > "$sample.spingo.out.txt"
 
     echo "Removing intermediate files..."
     rm -rf "$fa" "$fq"
@@ -94,7 +94,7 @@ process_paired() {
     awk 'NR%4==1 {gsub("@",">",$0); print} NR%4==2 {print}' "$fq" > "$fa"
 
     echo "Running Spingo..."
-    /home/omprakash/spingo/SPINGO-master/spingo -d /home/omprakash/spingo/SPINGO-master/database/RDP_11.2.species.fa -p 30 -i "$fa" > "$sample.spingo.out.txt"
+    /home/omprakash/spingo/SPINGO-master/spingo -d /home/omprakash/spingo/SPINGO-master/database/RDP_11.2.species.fa -p 60 -i "$fa" > "$sample.spingo.out.txt"
 
     echo "Removing intermediate files..."
     rm -rf "$fa" "$fq"
@@ -145,6 +145,42 @@ fi
 
 echo "🎉 All files processed!"
 
+# Function to get the server's IP address
+get_ip() {
+    hostname -I | awk '{print $1}'  # Extracts the first IP address
+}
+
+# Email Notification Function (Uses Python)
+send_email() {
+    SERVER_IP=$(get_ip)  # Get server IP dynamically
+    python3 - <<EOF
+import smtplib
+from email.mime.text import MIMEText
+
+def send():
+    fromaddr = 'omyashete414@gmail.com'  # Replace with your Gmail
+    toaddrs  = 'omprakashs@iiitd.ac.in'  # Replace with recipient email
+
+    subject = "[${SERVER_IP}]: Process has Ended ✅"
+    body = "Hello,\n\nYour process has successfully completed on server ${SERVER_IP}.\n\nBest,\nYour Script"
+
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = fromaddr
+    msg['To'] = toaddrs
+
+    username = 'omyashete414@gmail.com'   # Replace with your Gmail
+    password = 'igztliurrrxwjcjc'         # Replace with App Password
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(username, password)
+    server.sendmail(fromaddr, toaddrs, msg.as_string())
+    server.quit()
+
+send()
+EOF
+}
 
 # Send email notification after completion
 send_email

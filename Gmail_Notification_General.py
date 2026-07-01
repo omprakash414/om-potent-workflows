@@ -3,10 +3,10 @@ import argparse
 from email.mime.text import MIMEText
 
 def send_email(process_name):
-    fromaddr = 'senders_email@gmail.com'  # Replace with your Gmail email address
-    toaddrs = 'receivers_email@gmail.com'   # Replace with the recipient's email address
+    fromaddr = 'omyashete414@gmail.com'  # Replace with your Gmail email address
+    toaddrs = 'omprakashs@iiitd.ac.in'   # Replace with the recipient's email address
 
-    subject = "Boss! Your Process is Finally Done 🎉"
+    subject = "[192.168.17.41]: Boss! Your Process is Finally Done 🎉"
     body = f"Hello Boss! Your process is finally done for {process_name}. You can check the output now. \n\nBest Regards,\nYours Kivi!"
 
     msg = MIMEText(body.encode('utf-8'), 'plain', 'utf-8')
@@ -14,8 +14,8 @@ def send_email(process_name):
     msg['From'] = fromaddr
     msg['To'] = toaddrs
 
-    username = 'senders_email@gmail.com'   # Replace with your Gmail email address
-    password = 'Pass_Generated'         # Replace with the App Password generated for your Gmail account
+    username = 'omyashete414@gmail.com'   # Replace with your Gmail email address
+    password = 'igztliurrrxwjcjc'         # Replace with the App Password generated for your Gmail account
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
