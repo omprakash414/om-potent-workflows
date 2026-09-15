@@ -170,7 +170,7 @@ def send():
     msg['To'] = toaddrs
 
     username = 'omyashete414@gmail.com'   # Replace with your Gmail
-    password = 'igztliurrrxwjcjc'         # Replace with App Password
+    password = 'abcd'         # Replace with App Password
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
