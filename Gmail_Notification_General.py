@@ -15,7 +15,7 @@ def send_email(process_name):
     msg['To'] = toaddrs
 
     username = 'omyashete414@gmail.com'   # Replace with your Gmail email address
-    password = 'igztliurrrxwjcjc'         # Replace with the App Password generated for your Gmail account
+    password = 'abcd'         # Replace with the App Password generated for your Gmail account
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
