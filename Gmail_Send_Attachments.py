@@ -33,7 +33,7 @@ def send_email_with_attachments(file_paths, subject, body, closing_remark, recip
 
     # Gmail authentication details
     username = 'omyashete414@gmail.com'   # Replace with your Gmail email address
-    password = 'igztliurrrxwjcjc'         # Replace with the App Password generated for your Gmail account
+    password = 'abcd'         # Replace with the App Password generated for your Gmail account
 
     # Send the email
     try:
